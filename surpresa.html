@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <title>Caixa de Surpresa Clicável</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #6A5ACD;
+      }
+
+      .box {
+        position: relative;
+        width: 90vw;
+        max-width: 400px;
+        height: 90vw;
+        max-height: 400px;
+        background-color: #fff;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .box__lid {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        background-color: #D8BFD8;
+        transform-origin: bottom center;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .box__base {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        background-color: #BA55D3;
+        transition: height 0.3s ease-in-out;
+      }
+
+      .box__message {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        font-size: 1.5rem;
+        color: #fff;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+        transition: opacity 0.3s ease-in-out;
+      }
+
+      .box__text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        font-size: 1.5rem;
+        color: #fff;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <div class="box__lid"></div>
+        <div class="box__base">
+          <div class="box__message">Toque em mim para ver a surpresa!</div>
+          <div class="box__text hidden">Surpresa! Eu te amo muito, Susana!</div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const box = document.querySelector('.box');
+      const lid = document.querySelector('.box__lid');
+      const base = document.querySelector('.box__base');
+      const message = document.querySelector('.box__message');
+      const text = document.querySelector('.box__text');
+
+      box.addEventListener('touchstart', function() {
+        lid.style.transform = 'rotateX(-90deg)';
+        base.style.height = '100%';
+        message.style.opacity = '0';
+        text.classList.remove('hidden');
+      }, {passive: true});
+    </script>
+  </body>
+</html>
+
+
+
+
