@@ -97,16 +97,14 @@
       const message = document.querySelector('.box__message');
       const text = document.querySelector('.box__text');
 
-      box.addEventListener('touchstart', function() {
+      box.addEventListener('click', function() {
         lid.style.transform = 'rotateX(-90deg)';
         base.style.height = '100%';
-        message.style.opacity = '0';
+                message.style.opacity = '0';
         text.classList.remove('hidden');
-      }, {passive: true});
+      });
     </script>
   </body>
 </html>
-
-
 
 
